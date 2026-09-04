@@ -77,10 +77,15 @@ granskarnas tabeller oförändrade, även de rader som blev godkända.
 
 Copyn först, sedan rapporten. Är något underkänt levererar du inte — du rättar.
 
-### 6. Logg
+### 6. Logg och commit
 
 Lägg till en rad i `publiceringslogg.md` när posten är levererad. `Utfall`
 lämnas tomt tills siffrorna finns.
+
+Allt arbete ligger i repot. Committa briefen, copyn och QA-rapporten under
+`output/<datum>-sundets-rosteri/` tillsammans med loggraden, i samma commit —
+underlaget för ett beslut ska gå att läsa efteråt, inte bara resultatet. Ett
+ärende är inte klart förrän det är committat.
 
 ## Faktaregeln
 

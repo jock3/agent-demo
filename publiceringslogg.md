@@ -14,18 +14,19 @@ process), **varumärke**, **sälj** (direkt sälj).
 | 2026-04-22 | TikTok | reel, 32 s | värde | Ines svarar om sur smak | 41k visningar, 58% snittid |
 | 2026-05-06 | Instagram | statisk 4:5 | sälj | Lansering Ängö Ljus | 3,1% ER, 44 klick |
 | 2026-05-19 | Facebook | bild + event | sälj | Bryggkurs 6 juni | 12 anmälningar |
+| 2026-09-04 | Instagram | karusell, 4 bilder | varumärke | Nittio minuter — varför rosteriet slutat växa | *levererad, ej publicerad* |
 
 ## Läget just nu
 
-Fem poster, mars till maj 2026.
+Sex poster, mars 2026 och framåt. Den senaste är levererad men inte publicerad.
 
-**Fördelning:** 40% värde · 0% varumärke · 60% sälj.
-Målet i `plattformar.md` är 70 · 20 · 10. Säljandelen är sex gånger för hög och
-varumärkesspåret är orört. Nästa poster ska väga upp — värde och process i
-första hand, och något på varumärke innan kvartalet är slut.
+**Fördelning:** 33% värde · 17% varumärke · 50% sälj.
+Målet i `plattformar.md` är 70 · 20 · 10. Varumärkesspåret är öppnat med
+2026-09-04. Säljandelen är fortfarande fem gånger för hög — nästa två till tre
+poster ska ligga på värde och process.
 
 **Kadens:** målet är 7 poster i veckan (Instagram 3 · TikTok 2 · LinkedIn 1 ·
-Facebook 1). Loggen visar fem poster på tio veckor. Antingen är det ett urval
+Facebook 1). Loggen visar sex poster på ett halvår. Antingen är det ett urval
 och resten saknas i loggen, eller så är kadensen inte igång. Reder ut med
 Gustav innan den används som underlag.
 
