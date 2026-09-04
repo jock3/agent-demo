@@ -1,59 +1,39 @@
 # agent demo
 
-A tool-use agent that writes social-media copy for a fictional demo client,
-Sundets Rosteri — a micro coffee roastery in Kalmar. The agent reads the
-client's brand, platform, and fact guidelines before writing, and checks every
-factual claim against the one document allowed to contain facts.
+Social-media copy for a fictional demo client, Sundets Rosteri — a micro coffee
+roastery in Kalmar. Meant to be driven from Claude Code: open the repo and ask
+for a post. `CLAUDE.md` carries the workflow, `sundets-rosteri/` carries the
+source material. Nothing to install.
 
-## Run it
-
-```sh
-uv sync
-cp .env.example .env        # then add your ANTHROPIC_API_KEY
-uv run agent-demo "Instagram-karusell om bryggkursen i kafét"
-uv run agent-demo -v "LinkedIn-post om driftsäkerhet"   # -v prints tool calls
+```
+Skriv en Instagram-karusell om bryggkursen i kafét
+LinkedIn-post om att vi tar över serviceavtalet på maskinparken
 ```
 
 Output is in Swedish, because the knowledge base is.
 
-## How it works
+## The workflow
 
-`src/agent/main.py` runs the agentic loop by hand rather than using the SDK's
-tool runner, so the mechanics are visible: send the conversation, check
-`stop_reason`, run whatever tools the model asked for, append the results as
-`tool_result` blocks, send again. It stops when the model stops asking for
-tools.
+`CLAUDE.md` sets the order of work: read the brand and platform rules for the
+channel first, look at a comparable published post, and check every number,
+price, certification, and origin claim against `fakta.md` before it reaches the
+copy.
 
-Four tools, all reading from `sundets-rosteri/`:
-
-| Tool | What it does |
-| --- | --- |
-| `read_guideline` | Read one of the five guideline documents |
-| `list_posts` | List the published reference posts |
-| `read_post` | Read one reference post, with its published result |
-| `check_facts` | Look up a claim in `fakta.md` and return the matching lines |
-
-`check_facts` is the interesting one. `fakta.md` states that nothing outside it
-may be claimed, so the tool returns either the supporting lines or an explicit
-"unsupported" answer — which the system prompt turns into a `[FAKTA SAKNAS]`
-gap in the copy rather than an invented number.
-
-Filenames coming from the model are resolved and bounds-checked against the
-knowledge-base directory before any file is opened.
+`fakta.md` is the only permitted source of facts. Anything not stated there may
+not be claimed — the copy gets a `[FAKTA SAKNAS]` gap and a note on what needs
+confirming, rather than a plausible invented number.
 
 ## sundets-rosteri/
 
-Knowledge base for the demo client. Written in Swedish.
-
-Guidelines read by the agent:
+Guidelines:
 
 - `brand.md` — brand platform (tone, positioning, pronouns)
+- `plattformar.md` — hard per-platform limits (length, hashtags, emoji, CTA)
+- `fakta.md` — verified facts, permitted claims, forbidden claims
 - `bildmaner.md` — image style, read before generation and by QA
-- `fakta.md` — verified facts; nothing outside this may be claimed
-- `plattformar.md` — hard per-platform limits
 - `brief-mall.md` — brief template that starts the chain
 
-Reference posts with published results:
+Reference posts, each with its published result in front matter:
 
 - `2026-03-instagram-rostprotokoll.md`
 - `2026-04-linkedin-driftstopp.md`
