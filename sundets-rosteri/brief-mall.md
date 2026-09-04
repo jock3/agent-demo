@@ -1,8 +1,8 @@
 # Briefmall
 
-Briefagenten fyller i denna tillsammans med Gustav och skriver resultatet
-till `output/<datum>-<kund>/brief.md`. Kedjan startar först när alla fält
-är ifyllda — inga tomma rader vidare.
+Fylls i tillsammans med Gustav. Resultatet skrivs till
+`output/<datum>-<kund>/brief.md`. Arbetet startar först när alla fält är
+ifyllda — inga tomma rader vidare.
 
 ```markdown
 # Brief — <kund> — <datum>
@@ -17,12 +17,12 @@ till `output/<datum>-<kund>/brief.md`. Kedjan startar först när alla fält
 **Får inte med:** 
 **Pronomen:** du / er-era (följer brand.md)
 **CTA:** 
-**Bildbehov:** motivkategori enligt bildmanér.md + format
+**Bildbehov:** motivkategori enligt bildmaner.md + format
 **Deadline:** 
-**Referens:** tidigare post i godkanda/ som ligger närmast i ton
+**Referens:** tidigare post i sundets-rosteri/ (filnamn `20*.md`) som ligger närmast i ton
 ```
 
-## Frågor briefagenten ska ställa vid oklarhet
+## Frågor att ställa vid oklarhet
 
 1. Om syftet är "räckvidd" men CTA:n är köpdriven — vilket gäller?
 2. Om budskapet innehåller ett påstående som saknas i fakta.md — var kommer

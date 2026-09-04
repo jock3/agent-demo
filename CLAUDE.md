@@ -21,12 +21,18 @@ Allt underlag ligger i `sundets-rosteri/`.
 
 ## Faktaregeln
 
-`fakta.md` är enda tillåtna källan för fakta om Sundets Rosteri. Står ett
-påstående inte där får det inte göras — inte heller om det verkar rimligt eller
+`fakta.md` är enda tillåtna källan för **stående** fakta om Sundets Rosteri —
+servicearea, priser, certifieringar, ursprung, kapacitet. Står ett sådant
+påstående inte där får det inte göras, inte heller om det verkar rimligt eller
 framgår av en tidigare post.
 
-Saknas underlag: lämna `[FAKTA SAKNAS]` på platsen i copyn och skriv vad som
-behöver bekräftas. Hitta aldrig på siffror.
+Händelsedata är undantaget: datum för ett event, antal platser vid ett visst
+tillfälle, hur mycket som kasserades en viss vecka. Sådant kommer från briefen
+och ska inte flaggas mot `fakta.md`. Se avsnittet "Stående fakta kontra
+händelsedata" där.
+
+Saknas underlag för ett stående påstående: lämna `[FAKTA SAKNAS]` på platsen i
+copyn och skriv vad som behöver bekräftas. Hitta aldrig på siffror.
 
 Två fällor som återkommer: **Ängö Ljus** är KRAV-märkt men **Sundet Mörk** är
 det inte, och inget led är Fairtrade-certifierat. Klimatpåståenden saknar
