@@ -1,6 +1,6 @@
 # Faktaunderlag — Sundets Rosteri
 
-Läses av compliance-/faktaagenten. Allt som inte står här får inte påstås.
+Läses av granskaren `faktakoll`. Allt som inte står här får inte påstås.
 
 ## Verifierade fakta
 

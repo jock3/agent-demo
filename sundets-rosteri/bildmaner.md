@@ -1,6 +1,6 @@
 # Bildmanér — Sundets Rosteri
 
-Läses av bildagenten före generering och av QA-agenten efter.
+Läses före bildgenerering och av granskaren `bild-qa` efter.
 
 ## Grundprincip
 
@@ -65,6 +65,8 @@ Lägg alltid till: `no text, no watermark, no logo`
 Format: 4:5 för Instagram-feed, 9:16 för Reels/TikTok/Stories, 1.91:1 för LinkedIn.
 
 ## QA-checklista för bild
+
+Körs av `bild-qa`. Se även `qa.md` för leveransgrinden.
 
 Hårda kriterier. Agenten svarar godkänd/underkänd per punkt, inte i fritext.
 

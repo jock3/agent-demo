@@ -1,6 +1,7 @@
 # Plattformsregler — Sundets Rosteri
 
-Läses av plattformsagenten. Hårda gränser, inte rekommendationer.
+Läses av copyagenten före skrivning och av granskaren `plattformskoll` efter.
+Hårda gränser, inte rekommendationer.
 
 ## Instagram
 
