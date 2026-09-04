@@ -68,6 +68,10 @@ Format: 4:5 för Instagram-feed, 9:16 för Reels/TikTok/Stories, 1.91:1 för Lin
 
 Körs av `bild-qa`. Se även `qa.md` för leveransgrinden.
 
+Gäller lika för genererade bilder och egna foton. En bild som klarat
+checklistan förs in i `bilder/index.md` med QA-datum och får återanvändas
+därifrån. Beskärs den till ett nytt bildförhållande ska den granskas igen.
+
 Hårda kriterier. Agenten svarar godkänd/underkänd per punkt, inte i fritext.
 
 - [ ] Rätt bildförhållande för plattformen

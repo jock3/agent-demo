@@ -48,6 +48,7 @@ one to get past the gate is the failure the rule exists to prevent.
 ```
 CLAUDE.md              the workflow
 publiceringslogg.md    what shipped, and the 70/20/10 mix
+bilder/                approved photos, reusable across posts
 .claude/agents/        the three review subagents
 sundets-rosteri/       client knowledge base
 output/                briefs and QA reports, per assignment
@@ -62,3 +63,14 @@ Knowledge base:
 - `brief-mall.md` — brief template that opens the chain
 - `qa.md` — QA report format and the delivery gate
 - `20*.md` — five published reference posts, each with its result
+
+## Images
+
+`bilder/index.md` is a library of photos that have already passed `bild-qa`.
+The chain checks it before generating anything: reusing an approved shot is
+cheaper than a new one and lands the manér more reliably. Shooting comes
+second, generating last — `bildmaner.md` wants images that look like someone
+was there.
+
+Text and logos are never in the image files. They go on afterwards in layout,
+which is a hard point on the QA checklist.

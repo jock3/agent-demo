@@ -44,9 +44,19 @@ kontroll, inte ditt faktaarbete.
 
 ### 3. Bild
 
-Gäller ärendet bild: läs `bildmaner.md`, välj motivkategori och använd
-promptmallen som hör till den. Rätt bildförhållande för kanalen, och lägg
-alltid till `no text, no watermark, no logo`.
+Gäller ärendet bild: läs `bildmaner.md` och välj motivkategori.
+
+**Kolla `bilder/index.md` först.** Finns en godkänd bild i rätt kategori som
+inte gått ut på kanalen de senaste åtta veckorna, återanvänd den. Det är
+billigare och träffar manéret säkrare än en ny bild. Fyll i `Använd i` när den
+används.
+
+Finns ingen användbar bild: föreslå fotografering i första hand. Manéret bygger
+på att någon faktiskt var där, och `brief-mall.md` ställer frågan uttryckligen.
+
+Generering är sista alternativet. Använd promptmallen för kategorin, rätt
+bildförhållande för kanalen, och lägg alltid till
+`no text, no watermark, no logo`.
 
 Generera med Higgsfield-MCP om den är tillgänglig i sessionen. Går det inte:
 leverera den färdiga prompten och formatet i stället, och säg att bilden inte

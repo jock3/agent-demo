@@ -47,3 +47,9 @@ Avsluta med en rad: `Godkänd` om alla punkter är godkända, annars
 
 Bedöm inte om bilden är bra, vacker, säljande eller träffar tonen. Det avgör
 Gustav. Du svarar bara på om den bryter mot checklistan.
+
+## Efter godkänt
+
+Har bilden klarat alla punkter och ska sparas för återanvändning: föreslå en
+rad till `bilder/index.md` med filnamn, kategori, motiv i några ord, format
+och dagens datum i `QA`. Fyll aldrig i `Samtycke` — det avgör Gustav.
