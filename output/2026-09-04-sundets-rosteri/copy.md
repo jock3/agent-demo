@@ -28,8 +28,11 @@ Vad hade du valt bort för att slippa krånglet?
 
 Motivkategori 1, rosteriet i arbete. Format 4:5.
 
-**Ej genererad** — Higgsfield-MCP har 4 krediter på free-plan, vilket inte
-räcker för en generering. Prompten levereras enligt regeln i CLAUDE.md.
+**Ej genererad** — Higgsfield avvisar generering på free-plan:
+`Requires basic plan or higher`. Krediterna räcker (4 tillgängliga, 1,25 för
+en 4:5-bild på `recraft_v4_1`) — det är plannivån som stoppar, inte saldot.
+Att fylla på krediter löser det alltså inte. Prompten levereras enligt regeln
+i CLAUDE.md.
 
 ```
 documentary photograph, hands of a roaster adjusting a drum roaster dial,

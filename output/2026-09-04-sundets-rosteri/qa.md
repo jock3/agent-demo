@@ -50,4 +50,5 @@ Inga `[FAKTA SAKNAS]`.
 
 ## Utfall
 
-**Levererbar.** Bilden är utestående och kräver krediter eller egen fotografering.
+**Levererbar.** Bilden är utestående. Den kräver uppgraderad Higgsfield-plan
+eller egen fotografering — inte fler krediter.

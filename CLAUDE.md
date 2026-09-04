@@ -48,9 +48,14 @@ Gäller ärendet bild: läs `bildmaner.md`, välj motivkategori och använd
 promptmallen som hör till den. Rätt bildförhållande för kanalen, och lägg
 alltid till `no text, no watermark, no logo`.
 
-Generera med Higgsfield-MCP om den är tillgänglig i sessionen. Är den inte
-det: leverera den färdiga prompten och formatet i stället, och säg att bilden
-inte är genererad. Bygg inte om mallen för att komma runt att verktyget saknas.
+Generera med Higgsfield-MCP om den är tillgänglig i sessionen. Går det inte:
+leverera den färdiga prompten och formatet i stället, och säg att bilden inte
+är genererad. Bygg inte om mallen för att komma runt att verktyget saknas.
+
+Skriv ut det faktiska hindret, inte det du gissar att det är. Saldo, kostnad
+och plannivå är tre olika saker — en generering kan avvisas på plannivå med
+krediter kvar på kontot. Citera felet verktyget gav. En felaktig orsak i
+leveransen skickar Gustav på fel åtgärd.
 
 ### 4. Granskning
 
