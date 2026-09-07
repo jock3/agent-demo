@@ -26,8 +26,9 @@ Ny i stan eller bara nyfiken på hur det ser ut därinne? Länk i bio.
 **Hashtags (första kommentaren):**
 #mikrorosteri #kaffekalmar #ängö #kalmar #specialtycoffee #svensktkaffe #rostatilokalt
 
-**Bilder:** Bild 1 `1-rosteriet-vid-rosten-01.jpg` (rosteriet i arbete), bild 2
-`3-kafe-halvfullt-rum-01.jpg` (kaféet). 4:5, Instagram-feed.
+**Bilder:** Bild 1 `3-kafe-halvfullt-rum-01.jpg` (kaféet), bild 2
+`1-rosteriet-vid-rosten-01.jpg` (rosteriet i arbete). 4:5, Instagram-feed.
+Kaféet är cover-bilden, på uttrycklig begäran.
 
 **Varför den fungerar:** Öppnar med en siffra istället för ett påstående om
 känsla. Specifika detaljer (12 kg, 2019, Ängögatan) gör "litet rosteri"
