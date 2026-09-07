@@ -27,17 +27,20 @@ kompensera. Gustav har efterfrågat den här posten uttryckligen (rea på
 kaffe), så den levereras — men nästa två till tre ärenden bör vara värde/
 process, inte sälj, för att inte dra snedfördelningen längre.
 
-## Bild — beslut: ingen bild i det här ärendet
+## Bild — beslut: rosteribilden ändå, på uttrycklig begäran
 
-`bilder/index.md` har inga godkända bilder ännu, men två filer finns redan i
-`bilder/`: kategori 1 (rosteriet) och kategori 3 (kafét). Båda används redan
-i ärende `2026-09-07-sundets-rosteri-lansering/` på samma kanal, samma dag —
-regeln i `bilder/index.md` tillåter inte samma bild två gånger på samma kanal
-inom åtta veckor. Ingen kategori 2-bild (produkt i sammanhang) finns i
-repot.
+Ursprungligt beslut var ingen bild: `bilder/index.md` har inga godkända
+bilder, kategori 1 och 3 (de enda filerna i `bilder/`) används redan i
+`2026-09-07-sundets-rosteri-lansering/` på samma kanal samma dag, och ingen
+kategori 2-bild (produkt i sammanhang) finns. Gustav har därefter bett att
+`1-rosteriet-vid-rosten-01.jpg` sätts på den här posten ändå.
 
-Fotografering av produkten hade varit rätt nästa steg (manéret bygger på att
-någon faktiskt var där), men det är utanför vad som går att lösa i den här
-demon. Generering är sista alternativet enligt CLAUDE.md, och skulle här
-bara vara en genväg runt att rätt bild saknas — bygger inte om mallen för
-det. Levererar copyn utan bild och flaggar det i QA-rapporten.
+Två regler åsidosätts med det, båda flaggade i qa.md i stället för tystade:
+
+- **Bild-QA:** samma bild underkändes redan i lanseringsärendet — pseudotext
+  på väggposterna, övre vänstra hörnet. Defekten är oförändrad här, filen är
+  identisk.
+- **Återanvändningsregeln:** samma bild går ut på samma kanal två gånger
+  samma dag, vilket åttaveckorsregeln i `bilder/index.md` inte tillåter.
+
+Ingen av reglerna ändras i källfilen av det här enskilda beslutet.

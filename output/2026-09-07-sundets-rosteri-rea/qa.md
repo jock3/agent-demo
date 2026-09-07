@@ -47,11 +47,31 @@ Copyn håller sig innanför kanalens gränser.
 
 ## Bild-QA
 
-Ingen bild i den här leveransen. `bilder/index.md` har inga godkända bilder
-i kategori 2 (produkt i sammanhang), och de två bilder som finns i
-`bilder/` går redan ut i dagens andra ärende (lanseringsposten) på samma
-kanal — 8-veckorsregeln för återanvändning tillåter inte att samma bild
-går ut två gånger på samma kanal inom perioden. Se motivering i brief.md.
+Bilden `1-rosteriet-vid-rosten-01.jpg` sattes på den här posten efter
+uttrycklig begäran, efter att ärendet ursprungligen levererats utan bild
+(se brief.md). Samma resultat som i lanseringsärendet gäller — filen är
+identisk och har inte granskats om:
+
+| Punkt | Bedömning | Iakttagelse |
+|---|---|---|
+| Rätt bildförhållande (4:5 feed) | Godkänd | |
+| Ingen renderad text eller pseudotext | Underkänd | Otydlig pseudotext på affischer/lappar och kalenderliknande blad på väggen, övre vänstra hörnet |
+| Ingen felaktig hand- eller fingeranatomi i förgrunden | Godkänd | |
+| Färgtemperatur matchar palett (kall grund, varm accent) | Godkänd | |
+| Motivet inom en av tre motivkategorier | Godkänd | |
+| Inget motiv från "Absolut inte" | Godkänd | |
+| Produktförpackning utan påhittad text | Godkänd | |
+| Ingen logotyp över ansikte eller kaffeyta | Godkänd | |
+
+**Underkänd — 1 punkt**
+
+## Avvikelse — bild återanvänd trots underkänt och trots åttaveckorsregeln
+
+Bilden är underkänd av `bild-qa` och används redan i dagens andra ärende
+(`2026-09-07-sundets-rosteri-lansering/`) på samma kanal samma dag — bägge
+bryter mot leveransregeln respektive återanvändningsregeln i
+`bilder/index.md`. Gustav har uttryckligen bett om det. Bilden förs inte in
+i `bilder/index.md` som godkänd, och reglerna ändras inte av detta beslut.
 
 ## Luckor
 
@@ -66,5 +86,6 @@ rättas med kommande ärenden (värde/process, inte sälj).
 
 ## Utfall
 
-**Levererbar.** Alla punkter godkända, inga luckor, ingen bild i det här
-ärendet av dokumenterat skäl.
+**Levererbar — med avvikelse godkänd av Gustav.** Copy: alla punkter
+godkända. Bild: underkänd och återanvänd samma dag på samma kanal, levererad
+på uttrycklig begäran. Se avvikelsenot ovan.

@@ -29,7 +29,8 @@ din bryggare. Länk i bio.
 **Hashtags (första kommentaren):**
 #sundetmörk #kaffekalmar #mikrorosteri #espressorost #kalmar #svensktkaffe #specialtycoffee
 
-**Bild:** Ingen bild i det här ärendet — se motivering i brief.md.
+**Bild:** `1-rosteriet-vid-rosten-01.jpg` (rosteriet i arbete), 4:5. Samma fil
+som bild 1 i lanseringsposten — se avvikelsenot i qa.md.
 
 **Varför den fungerar:** Priset står i klartext utan "rea!!!"-känsla, vilket
 matchar den torra tonen i brand.md. CTA:n är mjuk trots att syftet är
