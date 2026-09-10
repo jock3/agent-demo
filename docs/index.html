@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bananrådet – Naturens egen energikick</title>
+<meta name="description" content="Upptäck varför bananen är naturens egen energikick. Enkelt. Naturligt. Gott.">
+<meta property="og:image" content="bilder/og-bild.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gul: #FFE135;
+    --mogen: #FFC107;
+    --gron: #4CAF50;
+    --ljusgul: #FFF9E6;
+    --vit: #FFFFFF;
+    --gra: #333333;
+    --gradient: linear-gradient(135deg, #FFE135, #FFC107);
+    --radie: 16px;
+    --skugga: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: var(--gra); line-height: 1.6; font-size: 18px; background: var(--vit); }
+  h1, h2, h3 { font-family: 'Poppins', sans-serif; line-height: 1.2; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 100px 0; }
+
+  /* Bildplatser: visar gul bakgrund tills bilden finns i /bilder */
+  .bild { background-color: var(--ljusgul); background-size: cover; background-position: center; border-radius: var(--radie); }
+
+  .etikett { display: inline-block; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: var(--gron); margin-bottom: 12px; }
+  .accent { background: var(--gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .centrerad { text-align: center; max-width: 700px; margin: 0 auto 60px; }
+  .centrerad h2 { font-size: 40px; margin-bottom: 16px; }
+
+  .knapp { display: inline-block; padding: 16px 32px; border-radius: var(--radie); font-weight: 600; transition: transform .3s, box-shadow .3s; }
+  .knapp:hover { transform: translateY(-3px); box-shadow: var(--skugga); }
+  .knapp-primar { background: var(--gradient); color: var(--gra); }
+  .knapp-sekundar { border: 2px solid var(--gra); }
+
+  /* Nav */
+  nav { position: sticky; top: 0; background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); z-index: 10; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+  nav .container { display: flex; align-items: center; justify-content: space-between; height: 80px; }
+  .logo { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 24px; display: flex; align-items: center; gap: 10px; }
+  .logo-ikon { width: 40px; height: 40px; border-radius: 50%; background: var(--gradient); display: grid; place-items: center; font-size: 20px; }
+  .nav-lankar { display: flex; gap: 32px; align-items: center; font-weight: 500; }
+  .nav-lankar .knapp { padding: 10px 22px; }
+
+  /* Hero */
+  .hero { background: linear-gradient(180deg, var(--ljusgul), var(--vit)); padding: 120px 0; }
+  .hero .container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .hero h1 { font-size: 56px; margin-bottom: 24px; }
+  .hero p { font-size: 20px; margin-bottom: 36px; max-width: 520px; }
+  .hero-knappar { display: flex; gap: 16px; flex-wrap: wrap; }
+  .hero-bild { aspect-ratio: 4 / 3; background-image: url('bilder/hero.jpg'); box-shadow: var(--skugga); }
+
+  /* Statistik */
+  .statistik { background: var(--gradient); padding: 60px 0; }
+  .statistik .container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+  .siffra { font-family: 'Poppins', sans-serif; font-size: 48px; font-weight: 700; }
+  .siffra-text { font-size: 16px; }
+
+  /* Kort */
+  .kort-rutnat { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .kort { background: var(--vit); padding: 40px 32px; border-radius: var(--radie); box-shadow: var(--skugga); transition: transform .3s; }
+  .kort:hover { transform: translateY(-8px); }
+  .kort-ikon { width: 64px; height: 64px; border-radius: var(--radie); background: var(--ljusgul); display: grid; place-items: center; font-size: 32px; margin-bottom: 24px; }
+  .kort h3 { font-size: 24px; margin-bottom: 12px; }
+
+  /* Steg */
+  .steg { background: var(--ljusgul); }
+  .steg-nummer { font-family: 'Poppins', sans-serif; font-size: 64px; font-weight: 700; margin-bottom: 8px; }
+
+  /* Delad sektion */
+  .delad .container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .delad-bild { aspect-ratio: 4 / 3; background-image: url('bilder/plantage.jpg'); box-shadow: var(--skugga); }
+  .delad h2 { font-size: 40px; margin-bottom: 20px; }
+  .delad p { margin-bottom: 20px; }
+  .bocklista { list-style: none; margin-bottom: 32px; }
+  .bocklista li { padding-left: 32px; position: relative; margin-bottom: 10px; }
+  .bocklista li::before { content: '✓'; position: absolute; left: 0; color: var(--gron); font-weight: 700; }
+
+  /* Recept */
+  .recept-kort { padding: 0; overflow: hidden; }
+  .recept-bild { aspect-ratio: 4 / 3; border-radius: 0; }
+  .recept-innehall { padding: 28px 32px 36px; }
+  .recept-meta { font-size: 14px; color: var(--gron); font-weight: 600; margin-bottom: 8px; }
+  .recept-lank { display: inline-block; margin-top: 16px; font-weight: 600; }
+
+  /* Omdömen */
+  .omdomen { background: var(--ljusgul); }
+  .citat { font-size: 18px; font-style: italic; margin-bottom: 24px; }
+  .person { display: flex; align-items: center; gap: 16px; }
+  .avatar { width: 56px; height: 56px; border-radius: 50%; }
+  .stjarnor { color: var(--mogen); margin-bottom: 16px; letter-spacing: 2px; }
+
+  /* Nyhetsbrev */
+  .nyhetsbrev-ruta { background: var(--gradient); border-radius: var(--radie); padding: 80px 40px; text-align: center; box-shadow: var(--skugga); }
+  .nyhetsbrev-ruta h2 { font-size: 40px; margin-bottom: 16px; }
+  .nyhetsbrev-ruta p { margin-bottom: 32px; }
+  .formular { display: flex; gap: 12px; max-width: 520px; margin: 0 auto; }
+  .formular input { flex: 1; padding: 16px 20px; border-radius: var(--radie); border: none; font-size: 16px; font-family: inherit; }
+  .formular .knapp { background: var(--gra); color: var(--vit); border: none; cursor: pointer; font-size: 16px; font-family: inherit; }
+
+  /* Footer */
+  footer { background: var(--gra); color: var(--vit); padding: 60px 0 30px; }
+  footer .container { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+  footer h4 { font-family: 'Poppins', sans-serif; margin-bottom: 16px; }
+  footer li { list-style: none; margin-bottom: 8px; opacity: .8; }
+  .copyright { text-align: center; margin-top: 50px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.1); opacity: .6; font-size: 14px; }
+
+  /* Animation */
+  .fade { opacity: 0; transform: translateY(40px); transition: opacity .8s ease, transform .8s ease; }
+  .fade.synlig { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) { .fade { opacity: 1; transform: none; transition: none; } }
+
+  /* Mobil */
+  @media (max-width: 900px) {
+    .hero .container, .delad .container { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 40px; }
+    .kort-rutnat { grid-template-columns: 1fr; }
+    .statistik .container { grid-template-columns: repeat(2, 1fr); }
+    .nav-lankar a:not(.knapp) { display: none; }
+    .nav-lankar .knapp { padding: 10px 16px; font-size: 15px; white-space: nowrap; }
+    .logo { font-size: 20px; }
+    footer .container { grid-template-columns: 1fr 1fr; }
+    .formular { flex-direction: column; }
+    section { padding: 70px 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="#" class="logo"><span class="logo-ikon">🍌</span>Bananrådet</a>
+    <div class="nav-lankar">
+      <a href="#fordelar">Fördelar</a>
+      <a href="#sa-enkelt">Så enkelt</a>
+      <a href="#recept">Recept</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="#nyhetsbrev" class="knapp knapp-primar">Kom igång →</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="fade">
+      <span class="etikett">Naturens egen superfrukt</span>
+      <h1>Naturens egen <span class="accent">energikick</span></h1>
+      <p>Bananen är god, enkel och full av näring. Upptäck varför miljontals människor väljer bananen varje dag – och varför ni också borde göra det.</p>
+      <div class="hero-knappar">
+        <a href="#fordelar" class="knapp knapp-primar">Upptäck mer →</a>
+        <a href="#recept" class="knapp knapp-sekundar">Se recept</a>
+      </div>
+    </div>
+    <div class="bild hero-bild fade" role="img" aria-label="En mogen banan mot gul bakgrund"></div>
+  </div>
+</header>
+
+<div class="statistik">
+  <div class="container">
+    <div class="fade"><div class="siffra">~100</div><div class="siffra-text">kcal per banan</div></div>
+    <div class="fade"><div class="siffra">~3 g</div><div class="siffra-text">fiber</div></div>
+    <div class="fade"><div class="siffra">~400 mg</div><div class="siffra-text">kalium</div></div>
+    <div class="fade"><div class="siffra">0</div><div class="siffra-text">förpackningar som behövs</div></div>
+  </div>
+</div>
+
+<section id="fordelar">
+  <div class="container">
+    <div class="centrerad fade">
+      <span class="etikett">Varför bananer?</span>
+      <h2>Allt ni behöver i ett naturligt skal</h2>
+      <p>Bananen är mer än bara en frukt. Den är ett smart val för hela kroppen – varje dag.</p>
+    </div>
+    <div class="kort-rutnat">
+      <div class="kort fade">
+        <div class="kort-ikon">⚡</div>
+        <h3>Snabb energi</h3>
+        <p>Naturliga kolhydrater som ger er kraft när ni behöver den som mest.</p>
+      </div>
+      <div class="kort fade">
+        <div class="kort-ikon">💪</div>
+        <h3>Rik på kalium</h3>
+        <p>Kalium bidrar till normal muskelfunktion och ett normalt blodtryck.</p>
+      </div>
+      <div class="kort fade">
+        <div class="kort-ikon">🌿</div>
+        <h3>Fiber för magen</h3>
+        <p>En naturlig källa till fiber som hjälper er att känna er mätta längre.</p>
+      </div>
+      <div class="kort fade">
+        <div class="kort-ikon">🎒</div>
+        <h3>Perfekt i farten</h3>
+        <p>Ingen förberedelse, inga redskap. Bara skala och njut – var ni än är.</p>
+      </div>
+      <div class="kort fade">
+        <div class="kort-ikon">🧠</div>
+        <h3>Vitamin B6</h3>
+        <p>Vitamin B6 bidrar till att minska trötthet och utmattning.</p>
+      </div>
+      <div class="kort fade">
+        <div class="kort-ikon">😋</div>
+        <h3>Helt enkelt gott</h3>
+        <p>Söt, krämig och älskad av både stora och små. Det är svårt att inte gilla.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sa-enkelt" class="steg">
+  <div class="container">
+    <div class="centrerad fade">
+      <span class="etikett">Så enkelt är det</span>
+      <h2>Tre steg till en bättre dag</h2>
+    </div>
+    <div class="kort-rutnat">
+      <div class="kort fade">
+        <div class="steg-nummer accent">01</div>
+        <h3>Skala</h3>
+        <p>Naturens egen förpackning öppnas på en sekund.</p>
+      </div>
+      <div class="kort fade">
+        <div class="steg-nummer accent">02</div>
+        <h3>Ät</h3>
+        <p>Njut av den krämiga, naturligt söta smaken.</p>
+      </div>
+      <div class="kort fade">
+        <div class="steg-nummer accent">03</div>
+        <h3>Må bra</h3>
+        <p>Känn energin och ta er an resten av dagen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="delad">
+  <div class="container">
+    <div class="bild delad-bild fade" role="img" aria-label="Bananplantage i soluppgång"></div>
+    <div class="fade">
+      <span class="etikett">Från plantage till frukostbord</span>
+      <h2>En resa värd att ta</h2>
+      <p>Varje banan har rest långt för att nå ert frukostbord. Från soliga plantager till butikshyllan – med kvalitet i varje led.</p>
+      <ul class="bocklista">
+        <li>Odlad i solen</li>
+        <li>Skördad med omsorg</li>
+        <li>Mogen när ni är redo</li>
+      </ul>
+      <a href="#nyhetsbrev" class="knapp knapp-primar">Läs mer →</a>
+    </div>
+  </div>
+</section>
+
+<section id="recept">
+  <div class="container">
+    <div class="centrerad fade">
+      <span class="etikett">Inspiration</span>
+      <h2>Populära bananrecept</h2>
+      <p>Enkla, goda och perfekta för alla tillfällen.</p>
+    </div>
+    <div class="kort-rutnat">
+      <div class="kort recept-kort fade">
+        <div class="bild recept-bild" style="background-image:url('bilder/recept-pannkakor.jpg')" role="img" aria-label="Bananpannkakor"></div>
+        <div class="recept-innehall">
+          <div class="recept-meta">15 min · Enkel</div>
+          <h3>Bananpannkakor</h3>
+          <p>Fluffiga pannkakor med bara tre ingredienser.</p>
+          <a href="#" class="recept-lank">Se recept →</a>
+        </div>
+      </div>
+      <div class="kort recept-kort fade">
+        <div class="bild recept-bild" style="background-image:url('bilder/recept-smoothie.jpg')" role="img" aria-label="Banansmoothie"></div>
+        <div class="recept-innehall">
+          <div class="recept-meta">5 min · Enkel</div>
+          <h3>Krämig smoothie</h3>
+          <p>Den perfekta starten på en energifylld morgon.</p>
+          <a href="#" class="recept-lank">Se recept →</a>
+        </div>
+      </div>
+      <div class="kort recept-kort fade">
+        <div class="bild recept-bild" style="background-image:url('bilder/recept-bananbrod.jpg')" role="img" aria-label="Bananbröd"></div>
+        <div class="recept-innehall">
+          <div class="recept-meta">60 min · Medel</div>
+          <h3>Saftigt bananbröd</h3>
+          <p>Ett klassiskt sätt att ta vara på mogna bananer.</p>
+          <a href="#" class="recept-lank">Se recept →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="omdomen">
+  <div class="container">
+    <div class="centrerad fade">
+      <span class="etikett">Omdömen</span>
+      <h2>Vad andra säger</h2>
+    </div>
+    <div class="kort-rutnat">
+      <div class="kort fade">
+        <div class="stjarnor">★★★★★</div>
+        <p class="citat">"En banan varje morgon har förändrat mina dagar. Jag har mer energi än någonsin!"</p>
+        <div class="person"><div class="bild avatar" style="background-image:url('bilder/avatar-1.jpg')"></div><div><strong>Anna</strong><br><small>34 år, Göteborg</small></div></div>
+      </div>
+      <div class="kort fade">
+        <div class="stjarnor">★★★★★</div>
+        <p class="citat">"Perfekt efter träningen. Snabbt, enkelt och gott. Jag har alltid en i väskan."</p>
+        <div class="person"><div class="bild avatar" style="background-image:url('bilder/avatar-2.jpg')"></div><div><strong>Erik</strong><br><small>28 år, Stockholm</small></div></div>
+      </div>
+      <div class="kort fade">
+        <div class="stjarnor">★★★★★</div>
+        <p class="citat">"Hela familjen älskar bananer. Det är det enklaste mellanmålet som finns."</p>
+        <div class="person"><div class="bild avatar" style="background-image:url('bilder/avatar-3.jpg')"></div><div><strong>Maria</strong><br><small>41 år, Malmö</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="nyhetsbrev">
+  <div class="container">
+    <div class="nyhetsbrev-ruta fade">
+      <h2>Håll er uppdaterade</h2>
+      <p>Få de senaste recepten, tipsen och nyheterna direkt i er inkorg.</p>
+      <div class="formular">
+        <input type="email" placeholder="Er e-postadress" aria-label="E-postadress">
+        <button class="knapp" onclick="this.textContent='Tack! ✓'">Prenumerera →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="kontakt">
+  <div class="container">
+    <div>
+      <div class="logo" style="margin-bottom:16px"><span class="logo-ikon">🍌</span>Bananrådet</div>
+      <p style="opacity:.8">Enkelt. Naturligt. Gott.</p>
+    </div>
+    <div><h4>Utforska</h4><ul><li>Fördelar</li><li>Recept</li><li>Näring</li></ul></div>
+    <div><h4>Om oss</h4><ul><li>Vår historia</li><li>Hållbarhet</li><li>Press</li></ul></div>
+    <div><h4>Kontakt</h4><ul><li>hej@bananradet.se</li><li>Instagram</li><li>LinkedIn</li></ul></div>
+  </div>
+  <div class="copyright">© 2026 Bananrådet. Alla rättigheter förbehållna.</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('synlig'); observer.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

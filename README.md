@@ -74,3 +74,14 @@ was there.
 
 Text and logos are never in the image files. They go on afterwards in layout,
 which is a hard point on the QA checklist.
+
+## Bananrådet
+
+`docs/` holds a second, unrelated demo: **Bananrådet**, a fictional banana
+industry campaign — graphic profile, design system and a one-page site, all in
+Swedish. It is deliberately generic: it shows what an AI default looks like
+when nobody steers it. `docs/CLAUDE.md` states the one rule that matters —
+do not improve the design.
+
+Published with GitHub Pages straight from `docs/` on `main`, no build step:
+https://jock3.github.io/agent-demo/

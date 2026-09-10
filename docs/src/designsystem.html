@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<style>
+  @page { size: 1920px 1080px; margin: 0; }
+  :root {
+    --gul: #FFE135; --mogen: #FFC107; --gron: #4CAF50; --ljusgul: #FFF9E6; --vit: #FFFFFF; --gra: #333333;
+    --gradient: linear-gradient(135deg, #FFE135, #FFC107);
+    --radie: 16px; --skugga: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; color: var(--gra); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; font-weight: 700; line-height: 1.15; }
+  .page { width: 1920px; height: 1080px; position: relative; overflow: hidden; page-break-after: always; background: var(--vit); padding: 100px 120px; }
+  .page:last-child { page-break-after: auto; }
+
+  .etikett { font-family: 'Poppins'; font-weight: 600; font-size: 20px; letter-spacing: 3px; text-transform: uppercase; color: var(--gron); margin-bottom: 16px; display: block; }
+  .rubrik { font-size: 72px; margin-bottom: 20px; }
+  .ingress { font-size: 26px; line-height: 1.5; max-width: 1100px; opacity: .85; }
+  .accent { color: #FFC107; }
+
+  .sidfot { position: absolute; bottom: 44px; left: 120px; right: 120px; display: flex; justify-content: space-between; font-size: 18px; opacity: .5; }
+  .logo { font-family: 'Poppins'; font-weight: 700; display: inline-flex; align-items: center; gap: 14px; }
+  .logo-ikon { border-radius: 50%; background: var(--gradient); display: grid; place-items: center; }
+
+  .kort { background: var(--vit); border-radius: var(--radie); box-shadow: var(--skugga); padding: 44px; }
+  .rutnat-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+  .rutnat-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+
+  .knapp { display: inline-block; padding: 18px 36px; border-radius: var(--radie); font-weight: 600; font-size: 20px; }
+  .knapp-primar { background: var(--gradient); }
+  .knapp-sekundar { border: 2px solid var(--gra); }
+  .knapp-mork { background: var(--gra); color: var(--vit); }
+  .knapp-hover { background: var(--gradient); transform: translateY(-3px); box-shadow: var(--skugga); }
+
+  .platshallare { background: var(--ljusgul); border-radius: var(--radie); display: grid; place-items: center; text-align: center; color: #b89a00; font-weight: 600; font-size: 18px; border: 2px dashed #F0D66B; }
+
+  /* Omslag */
+  .omslag { background: var(--gradient); display: flex; flex-direction: column; justify-content: center; }
+  .omslag h1 { font-size: 150px; margin: 30px 0 20px; }
+  .omslag .ingress { font-size: 36px; opacity: 1; }
+  .omslag .version { position: absolute; bottom: 80px; left: 120px; font-size: 22px; font-weight: 600; }
+  .cirkel { position: absolute; border-radius: 50%; background: rgba(255,255,255,.25); }
+
+  /* Innehåll */
+  .innehall-lista { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 80px; margin-top: 70px; }
+  .innehall-rad { display: flex; align-items: baseline; gap: 30px; font-size: 32px; font-family: 'Poppins'; font-weight: 600; border-bottom: 2px solid var(--ljusgul); padding-bottom: 18px; }
+  .innehall-rad span { font-size: 44px; font-weight: 700; min-width: 80px; }
+
+  /* Färger */
+  .farger { display: grid; grid-template-columns: repeat(6, 1fr); gap: 28px; margin-top: 60px; }
+  .farg { border-radius: var(--radie); overflow: hidden; box-shadow: var(--skugga); }
+  .farg-yta { height: 240px; }
+  .farg-info { padding: 26px; font-size: 18px; line-height: 1.7; }
+  .farg-info strong { font-family: 'Poppins'; font-size: 24px; display: block; margin-bottom: 6px; }
+  .gradient-rad { margin-top: 44px; height: 110px; border-radius: var(--radie); background: var(--gradient); display: flex; align-items: center; padding: 0 44px; font-weight: 600; font-size: 22px; justify-content: space-between; }
+
+  /* Typografi */
+  .typsnitt-prov { font-size: 180px; line-height: 1; margin-bottom: 24px; }
+  .typskala-rad { display: flex; align-items: baseline; gap: 40px; border-bottom: 2px solid var(--ljusgul); padding: 18px 0; }
+  .typskala-rad .meta { width: 220px; font-size: 18px; color: var(--gron); font-weight: 600; flex-shrink: 0; }
+
+  /* Tokens */
+  .token-kod { background: var(--gra); color: var(--vit); border-radius: var(--radie); padding: 40px; font-family: 'DejaVu Sans Mono', monospace; font-size: 20px; line-height: 1.8; }
+  .token-kod .k { color: var(--gul); }
+  .spacing-rad { display: flex; align-items: flex-end; gap: 22px; margin-top: 20px; }
+  .spacing-rad div { background: var(--gradient); border-radius: 6px; }
+  .spacing-rad small { display: block; text-align: center; margin-top: 10px; font-size: 16px; }
+
+  /* Tonalitet */
+  .ord { display: inline-block; background: var(--ljusgul); border-radius: 50px; padding: 14px 30px; font-size: 24px; font-weight: 600; margin: 0 12px 16px 0; }
+  .gor { border-top: 8px solid var(--gron); }
+  .gorinte { border-top: 8px solid #E53935; }
+  .gor h3, .gorinte h3 { font-size: 34px; margin-bottom: 22px; }
+  .exempel { font-size: 24px; line-height: 1.5; margin-bottom: 18px; padding-left: 38px; position: relative; }
+  .gor .exempel::before { content: '✓'; position: absolute; left: 0; color: var(--gron); font-weight: 700; }
+  .gorinte .exempel::before { content: '✕'; position: absolute; left: 0; color: #E53935; font-weight: 700; }
+
+  /* Tillämpning */
+  .mockup-webb { border-radius: var(--radie); box-shadow: var(--skugga); overflow: hidden; }
+  .mockup-bar { height: 44px; background: #eee; display: flex; align-items: center; gap: 10px; padding: 0 18px; }
+  .mockup-bar i { width: 14px; height: 14px; border-radius: 50%; background: #ccc; display: block; }
+  .mockup-hero { background: linear-gradient(180deg, var(--ljusgul), var(--vit)); padding: 50px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; }
+  .telefon { border-radius: 36px; border: 12px solid var(--gra); overflow: hidden; background: var(--vit); }
+
+  /* Bakom kulisserna */
+  .mork { background: var(--gra); color: var(--vit); }
+  .mork .sidfot { color: var(--vit); }
+  .bingo { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-top: 50px; }
+  .bingo div { border: 2px solid rgba(255,225,53,.5); border-radius: var(--radie); padding: 26px 22px; font-size: 21px; line-height: 1.4; height: 150px; display: flex; align-items: center; justify-content: center; text-align: center; font-weight: 500; }
+</style>
+</head>
+<body>
+
+<!-- 1 Omslag -->
+<section class="page omslag">
+  <div class="cirkel" style="width:900px;height:900px;right:-200px;top:-250px"></div>
+  <div class="cirkel" style="width:500px;height:500px;right:300px;bottom:-300px"></div>
+  <div class="logo" style="font-size:44px"><span class="logo-ikon" style="width:80px;height:80px;font-size:42px;background:var(--vit)">🍌</span>Bananrådet</div>
+  <h1>Designsystem</h1>
+  <p class="ingress">Riktlinjer för en enhetlig, energisk och naturlig kommunikation.</p>
+  <div class="version">Version 1.0 · 2026</div>
+</section>
+
+<!-- 2 Innehåll -->
+<section class="page">
+  <span class="etikett">Översikt</span>
+  <h2 class="rubrik">Innehåll</h2>
+  <div class="innehall-lista">
+    <div class="innehall-rad"><span class="accent">01</span>Varumärket</div>
+    <div class="innehall-rad"><span class="accent">06</span>Formspråk & tokens</div>
+    <div class="innehall-rad"><span class="accent">02</span>Logotyp</div>
+    <div class="innehall-rad"><span class="accent">07</span>Komponenter</div>
+    <div class="innehall-rad"><span class="accent">03</span>Färger</div>
+    <div class="innehall-rad"><span class="accent">08</span>Bildspråk & ikoner</div>
+    <div class="innehall-rad"><span class="accent">04</span>Typografi</div>
+    <div class="innehall-rad"><span class="accent">09</span>Tonalitet</div>
+    <div class="innehall-rad"><span class="accent">05</span>Typskala</div>
+    <div class="innehall-rad"><span class="accent">10</span>Tillämpning</div>
+  </div>
+  <div class="sidfot"><span>Bananrådet – Designsystem</span><span>2</span></div>
+</section>
+
+<!-- 3 Varumärket -->
+<section class="page" style="background:var(--ljusgul)">
+  <span class="etikett">01 — Varumärket</span>
+  <h2 class="rubrik">Naturens egen <span class="accent">energikick</span></h2>
+  <p class="ingress">Bananrådet är en branschorganisation som vill öka kunskapen om bananens fördelar. Vi inspirerar fler att välja bananen – varje dag.</p>
+  <div class="rutnat-3" style="margin-top:80px">
+    <div class="kort"><div style="font-size:64px;margin-bottom:24px">✨</div><h3 style="font-size:40px;margin-bottom:14px">Enkelt</h3><p style="font-size:22px;line-height:1.5">Vi gör det lätt att göra bra val. Inga krångliga budskap.</p></div>
+    <div class="kort"><div style="font-size:64px;margin-bottom:24px">🌿</div><h3 style="font-size:40px;margin-bottom:14px">Naturligt</h3><p style="font-size:22px;line-height:1.5">Direkt från naturen, utan tillsatser eller förpackning.</p></div>
+    <div class="kort"><div style="font-size:64px;margin-bottom:24px">😋</div><h3 style="font-size:40px;margin-bottom:14px">Gott</h3><p style="font-size:22px;line-height:1.5">Hälsa ska vara njutbart. Bananen bevisar det varje dag.</p></div>
+  </div>
+  <div class="sidfot"><span>Bananrådet – Designsystem</span><span>3</span></div>
+</section>
+
+<!-- 4 Logotyp -->
+<section class="page">
+  <span class="etikett">02 — Logotyp</span>
+  <h2 class="rubrik">Logotyp</h2>
+  <p class="ingress">Ordmärket i Poppins Bold kombinerat med bananikonen. Använd alltid originalfilen.</p>
+  <div class="rutnat-3" style="margin-top:60px">
+    <div>
+      <div class="kort" style="height:320px;display:grid;place-items:center"><div class="logo" style="font-size:48px"><span class="logo-ikon" style="width:84px;height:84px;font-size:44px">🍌</span>Bananrådet</div></div>
+      <p style="margin-top:20px;font-size:22px"><strong>Primär</strong> – på vit bakgrund</p>
+    </div>
+    <div>
+      <div class="kort" style="height:320px;display:grid;place-items:center;background:var(--gradient)"><div class="logo" style="font-size:48px"><span class="logo-ikon" style="width:84px;height:84px;font-size:44px;background:var(--vit)">🍌</span>Bananrådet</div></div>
+      <p style="margin-top:20px;font-size:22px"><strong>På gult</strong> – vit ikonplatta</p>
+    </div>
+    <div>
+      <div class="kort" style="height:320px;display:grid;place-items:center;background:var(--gra)"><div class="logo" style="font-size:48px;color:var(--vit)"><span class="logo-ikon" style="width:84px;height:84px;font-size:44px">🍌</span>Bananrådet</div></div>
+      <p style="margin-top:20px;font-size:22px"><strong>Negativ</strong> – på mörk bakgrund</p>
+    </div>
+  </div>
+  <div class="rutnat-2" style="margin-top:50px;gap:40px">
+    <div style="font-size:22px;line-height:1.6"><strong style="font-family:Poppins">Frizon:</strong> minst en ikonbredd runt hela logotypen. <strong style="font-family:Poppins">Minsta storlek:</strong> 120 px bredd digitalt.</div>
+    <div style="font-size:22px;line-height:1.6"><strong style="font-family:Poppins">Placering:</strong> övre vänstra hörnet på webb, nedre högra hörnet i sociala medier.</div>
+  </div>
+  <div class="sidfot"><span>Bananrådet – Designsystem</span><span>4</span></div>
+</section>
+
+<!-- 5 Färger -->
+<section class="page">
+  <span class="etikett">03 — Färger</span>
+  <h2 class="rubrik">Färgpalett</h2>
+  <p class="ingress">Gult är vår signatur. Använd det generöst för att skapa glädje och energi.</p>
+  <div class="farger">
+    <div class="farg"><div class="farg-yta" style="background:#FFE135"></div><div class="farg-info"><strong>Bananagul</strong>#FFE135<br>RGB 255 225 53<br>Primärfärg</div></div>
+    <div class="farg"><div class="farg-yta" style="background:#FFC107"></div><div class="farg-info"><strong>Mogen gul</strong>#FFC107<br>RGB 255 193 7<br>Gradient, hover</div></div>
+    <div class="farg"><div class="farg-yta" style="background:#4CAF50"></div><div class="farg-info"><strong>Bladgrön</strong>#4CAF50<br>RGB 76 175 80<br>Sekundär accent</div></div>
+    <div class="farg"><div class="farg-yta" style="background:#FFF9E6"></div><div class="farg-info"><strong>Ljusgul</strong>#FFF9E6<br>RGB 255 249 230<br>Bakgrunder</div></div>
+    <div class="farg"><div class="farg-yta" style="background:#FFFFFF;border-bottom:1px solid #eee"></div><div class="farg-info"><strong>Vit</strong>#FFFFFF<br>RGB 255 255 255<br>Bakgrund, kort</div></div>
+    <div class="farg"><div class="farg-yta" style="background:#333333"></div><div class="farg-info"><strong>Mörkgrå</strong>#333333<br>RGB 51 51 51<br>Text</div></div>
+  </div>
+  <div class="gradient-rad"><span>Signaturgradient</span><span>linear-gradient(135deg, #FFE135, #FFC107)</span></div>
+  <div class="sidfot"><span>Bananrådet – Designsystem</span><span>5</span></div>
+</section>
+
+<!-- 6 Typografi -->
+<section class="page">
+  <span class="etikett">04 — Typografi</span>
+  <h2 class="rubrik">Typsnitt</h2>
+  <div class="rutnat-2" style="margin-top:50px">
+    <div class="kort" style="padding:56px">
+      <div class="typsnitt-prov" style="font-family:Poppins;font-weight:700">Aa</div>
+      <h3 style="font-size:44px;margin-bottom:12px">Poppins</h3>
+      <p style="font-size:22px;line-height:1.6;margin-bottom:24px">Rubriker och knappar. Bold 700 och SemiBold 600. Modern, geometrisk och vänlig.</p>
+      <p style="font-family:Poppins;font-size:26px;font-weight:600;letter-spacing:1px">ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ<br>abcdefghijklmnopqrstuvwxyzåäö<br>0123456789</p>
+    </div>
+    <div class="kort" style="padding:56px">
+      <div class="typsnitt-prov" style="font-family:Inter;font-weight:400">Aa</div>
+      <h3 style="font-size:44px;margin-bottom:12px">Inter</h3>
+      <p style="font-size:22px;line-height:1.6;margin-bottom:24px">Brödtext och gränssnitt. Regular 400 och Medium 500. Tydlig och lättläst i alla storlekar.</p>
+      <p style="font-family:Inter;font-size:26px;letter-spacing:1px">ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ<br>abcdefghijklmnopqrstuvwxyzåäö<br>0123456789</p>
+    </div>
+  </div>
+  <div class="sidfot"><span>Bananrådet – Designsystem</span><span>6</span></div>
+</section>
+
+<!-- 7 Typskala -->
+<section class="page">
+  <span class="etikett">05 — Typskala</span>
+  <h2 class="rubrik">Typskala</h2>
+  <div style="margin-top:40px">
+    <div class="typskala-rad"><div class="meta">H1 · 56 px<br>Poppins Bold</div><div style="font-family:Poppins;font-weight:700;font-size:56px">Naturens egen energikick</div></div>
+    <div class="typskala-rad"><div class="meta">H2 · 40 px<br>Poppins Bold</div><div style="font-family:Poppins;font-weight:700;font-size:40px">Allt ni behöver i ett naturligt skal</div></div>
+    <div class="typskala-rad"><div class="meta">H3 · 24 px<br>Poppins Bold</div><div style="font-family:Poppins;font-weight:700;font-size:24px">Snabb energi</div></div>
+    <div class="typskala-rad"><div class="meta">Etikett · 14 px<br>Poppins SemiBold</div><div style="font-family:Poppins;font-weight:600;font-size:14px;letter-spacing:2px;text-transform:uppercase;color:var(--gron)">Varför bananer?</div></div>
+    <div class="typskala-rad"><div class="meta">Brödtext · 18 px<br>Inter Regular</div><div style="font-size:18px;line-height:1.6;max-width:900px">Bananen är god, enkel och full av näring. Upptäck varför miljontals människor väljer bananen varje dag.</div></div>
+    <div class="typskala-rad"><div class="meta">Liten · 14 px<br>Inter Regular</div><div style="font-size:14px">© 2026 Bananrådet. Alla rättigheter förbehållna.</div></div>
+  </div>
+  <p style="margin-top:36px;font-size:22px"><strong style="font-family:Poppins">Radavstånd:</strong> 1,2 för rubriker, 1,6 för brödtext.</p>
+  <div class="sidfot"><span>Bananrådet – Designsystem</span><span>7</span></div>
+</section>
+
+<!-- 8 Tokens -->
+<section class="page">
+  <span class="etikett">06 — Formspråk & tokens</span>
+  <h2 class="rubrik">Formspråk</h2>
+  <div class="rutnat-2" style="margin-top:50px;grid-template-columns:1fr 1.1fr">
+    <div>
+      <h3 style="font-size:32px;margin-bottom:24px">Hörn & skugga</h3>
+      <div style="display:flex;gap:30px;margin-bottom:56px">
+        <div class="kort" style="width:220px;height:160px;display:grid;place-items:center;font-weight:600;font-size:20px">16 px</div>
+        <div style="width:220px;height:160px;border-radius:50px;background:var(--gradient);display:grid;place-items:center;font-weight:600;font-size:20px">Pill 50 px</div>
+        <div style="width:160px;height:160px;border-radius:50%;background:var(--ljusgul);display:grid;place-items:center;font-weight:600;font-size:20px">Cirkel</div>
+      </div>
+      <h3 style="font-size:32px;margin-bottom:10px">Spacing</h3>
+      <p style="font-size:20px;margin-bottom:10px">Baserad på en 8 px-skala.</p>
+      <div class="spacing-rad">
+        <div><div style="width:40px;height:8px"></div><small>8</small></div>
+        <div><div style="width:40px;height:16px"></div><small>16</small></div>
+        <div><div style="width:40px;height:24px"></div><small>24</small></div>
+        <div><div style="width:40px;height:32px"></div><small>32</small></div>
+        <div><div style="width:40px;height:48px"></div><small>48</small></div>
+        <div><div style="width:40px;height:64px"></div><small>64</small></div>
+        <div><div style="width:40px;height:100px"></div><small>100</small></div>
+      </div>
+    </div>
+    <div class="token-kod">
+      <span style="opacity:.5">/* Design tokens */</span><br>
+      :root {<br>
+      &nbsp;&nbsp;<span class="k">--gul</span>: #FFE135;<br>
+      &nbsp;&nbsp;<span class="k">--mogen</span>: #FFC107;<br>
+      &nbsp;&nbsp;<span class="k">--gron</span>: #4CAF50;<br>
+      &nbsp;&nbsp;<span class="k">--ljusgul</span>: #FFF9E6;<br>
+      &nbsp;&nbsp;<span class="k">--vit</span>: #FFFFFF;<br>
+      &nbsp;&nbsp;<span class="k">--gra</span>: #333333;<br>
+      &nbsp;&nbsp;<span class="k">--gradient</span>: linear-gradient(<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;135deg, #FFE135, #FFC107);<br>
+      &nbsp;&nbsp;<span class="k">--radie</span>: 16px;<br>
+      &nbsp;&nbsp;<span class="k">--skugga</span>: 0 10px 30px<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;rgba(0,0,0,0.1);<br>
+      &nbsp;&nbsp;<span class="k">--font-rubrik</span>: 'Poppins';<br>
+      &nbsp;&nbsp;<span class="k">--font-brod</span>: 'Inter';<br>
+      }
+    </div>
+  </div>
+  <div class="sidfot"><span>Bananrådet – Designsystem</span><span>8</span></div>
+</section>
+
+<!-- 9 Komponenter -->
+<section class="page" style="background:var(--ljusgul)">
+  <span class="etikett">07 — Komponenter</span>
+  <h2 class="rubrik">Komponenter</h2>
+  <div class="rutnat-2" style="margin-top:50px;gap:50px">
+    <div>
+      <h3 style="font-size:30px;margin-bottom:24px">Knappar</h3>
+      <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:14px">
+        <span class="knapp knapp-primar">Upptäck mer →</span>
+        <span class="knapp knapp-hover">Hover →</span>
+        <span class="knapp knapp-sekundar">Se recept</span>
+        <span class="knapp knapp-mork">Prenumerera →</span>
+      </div>
+      <p style="font-size:18px;opacity:.7;margin-bottom:46px">Primär · Hover · Sekundär · Mörk</p>
+
+      <h3 style="font-size:30px;margin-bottom:24px">Formulär</h3>
+      <div style="display:flex;gap:14px;margin-bottom:46px">
+        <div style="flex:1;background:var(--vit);border-radius:var(--radie);padding:18px 24px;font-size:20px;color:#999;box-shadow:var(--skugga)">Er e-postadress</div>
+        <span class="knapp knapp-mork">Prenumerera →</span>
+      </div>
+
+      <h3 style="font-size:30px;margin-bottom:20px">Listor & betyg</h3>
+      <div style="font-size:22px;line-height:2"><span style="color:var(--gron);font-weight:700">✓</span>&nbsp; Odlad i solen<br><span style="color:var(--gron);font-weight:700">✓</span>&nbsp; Skördad med omsorg</div>
+      <div style="color:var(--mogen);font-size:32px;letter-spacing:4px;margin-top:10px">★★★★★</div>
+    </div>
+    <div>
+      <h3 style="font-size:30px;margin-bottom:24px">Kort</h3>
+      <div class="kort" style="margin-bottom:30px">
+        <div style="width:76px;height:76px;border-radius:var(--radie);background:var(--ljusgul);display:grid;place-items:center;font-size:38px;margin-bottom:22px">⚡</div>
+        <h3 style="font-size:30px;margin-bottom:10px">Snabb energi</h3>
+        <p style="font-size:21px;line-height:1.5">Naturliga kolhydrater som ger er kraft när ni behöver den som mest.</p>
+      </div>
+      <div class="kort">
+        <div style="font-family:Poppins;font-weight:700;font-size:70px" class="accent">01</div>
+        <h3 style="font-size:30px;margin-bottom:10px">Skala</h3>
+        <p style="font-size:21px;line-height:1.5">Naturens egen förpackning öppnas på en sekund.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sidfot"><span>Bananrådet – Designsystem</span><span>9</span></div>
+</section>
+
+<!-- 10 Bildspråk -->
+<section class="page">
+  <span class="etikett">08 — Bildspråk & ikoner</span>
+  <h2 class="rubrik">Bildspråk</h2>
+  <p class="ingress">Ljust, glatt och högmättat. Bananen i fokus. Leende människor i vardagsmiljöer.</p>
+  <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:250px 250px;gap:28px;margin-top:50px">
+    <div class="platshallare" style="grid-row:span 2">H1 · hero.jpg<br>Banan mot gul bakgrund</div>
+    <div class="platshallare">S2<br>Träning</div>
+    <div class="platshallare">S3<br>Frukost</div>
+    <div class="platshallare">L1<br>Kontor</div>
+    <div class="platshallare">H2<br>Plantage</div>
+  </div>
+  <div style="display:flex;gap:26px;margin-top:40px;align-items:center">
+    <span style="font-family:Poppins;font-weight:700;font-size:26px;margin-right:10px">Ikoner</span>
+    <div style="width:76px;height:76px;border-radius:var(--radie);background:var(--ljusgul);display:grid;place-items:center;font-size:38px">⚡</div>
+    <div style="width:76px;height:76px;border-radius:var(--radie);background:var(--ljusgul);display:grid;place-items:center;font-size:38px">💪</div>
+    <div style="width:76px;height:76px;border-radius:var(--radie);background:var(--ljusgul);display:grid;place-items:center;font-size:38px">🌿</div>
+    <div style="width:76px;height:76px;border-radius:var(--radie);background:var(--ljusgul);display:grid;place-items:center;font-size:38px">🎒</div>
+    <div style="width:76px;height:76px;border-radius:var(--radie);background:var(--ljusgul);display:grid;place-items:center;font-size:38px">🧠</div>
+    <div style="width:76px;height:76px;border-radius:var(--radie);background:var(--ljusgul);display:grid;place-items:center;font-size:38px">😋</div>
+    <span style="font-size:20px;opacity:.7;margin-left:10px">Emoji på ljusgul platta, 16 px hörn</span>
+  </div>
+  <div class="sidfot"><span>Bananrådet – Designsystem</span><span>10</span></div>
+</section>
+
+<!-- 11 Tonalitet -->
+<section class="page">
+  <span class="etikett">09 — Tonalitet</span>
+  <h2 class="rubrik">Så låter vi</h2>
+  <p class="ingress">Positiva, energiska och inkluderande. Vi tilltalar alltid mottagaren med ni, er och era.</p>
+  <div style="margin-top:40px">
+    <span class="ord">upptäck</span><span class="ord">naturlig</span><span class="ord">energi</span><span class="ord">enkel</span><span class="ord">må bra</span><span class="ord">varje dag</span><span class="ord">i farten</span><span class="ord">superfrukt</span>
+  </div>
+  <div class="rutnat-2" style="margin-top:40px;gap:40px">
+    <div class="kort gor">
+      <h3>Gör så här</h3>
+      <p class="exempel">"Ge er själva en naturlig energikick."</p>
+      <p class="exempel">"Enkelt. Naturligt. Gott."</p>
+      <p class="exempel">Korta meningar med tydlig uppmaning.</p>
+    </div>
+    <div class="kort gorinte">
+      <h3>Undvik</h3>
+      <p class="exempel">"Du borde verkligen äta mer frukt."</p>
+      <p class="exempel">Långa, tekniska förklaringar.</p>
+      <p class="exempel">Ironi och mörka färger.</p>
+    </div>
+  </div>
+  <div class="sidfot"><span>Bananrådet – Designsystem</span><span>11</span></div>
+</section>
+
+<!-- 12 Tillämpning -->
+<section class="page" style="background:var(--ljusgul)">
+  <span class="etikett">10 — Tillämpning</span>
+  <h2 class="rubrik">Tillämpning</h2>
+  <div style="display:grid;grid-template-columns:2.1fr 1fr 1fr;gap:44px;margin-top:40px;align-items:start">
+    <div>
+      <div class="mockup-webb">
+        <div class="mockup-bar"><i></i><i></i><i></i></div>
+        <div style="background:var(--vit);padding:18px 30px;display:flex;justify-content:space-between;align-items:center">
+          <div class="logo" style="font-size:22px"><span class="logo-ikon" style="width:38px;height:38px;font-size:20px">🍌</span>Bananrådet</div>
+          <span class="knapp knapp-primar" style="font-size:15px;padding:10px 20px">Kom igång →</span>
+        </div>
+        <div class="mockup-hero">
+          <div>
+            <span class="etikett" style="font-size:13px">Naturens egen superfrukt</span>
+            <h3 style="font-size:44px;margin-bottom:16px">Naturens egen <span class="accent">energikick</span></h3>
+            <p style="font-size:16px;margin-bottom:22px;line-height:1.5">Bananen är god, enkel och full av näring.</p>
+            <span class="knapp knapp-primar" style="font-size:15px;padding:12px 24px">Upptäck mer →</span>
+          </div>
+          <div class="platshallare" style="aspect-ratio:1/1">H1</div>
+        </div>
+      </div>
+      <p style="margin-top:20px;font-size:22px"><strong style="font-family:Poppins">Webb</strong> – bananradet.se</p>
+    </div>
+    <div>
+      <div class="telefon">
+        <div style="padding:14px 18px;font-weight:600;font-size:16px;display:flex;align-items:center;gap:10px"><span class="logo-ikon" style="width:30px;height:30px;font-size:16px">🍌</span>bananradet</div>
+        <div class="platshallare" style="height:420px;border-radius:0;border:none">S1<br>Karusell 4:5</div>
+        <div style="padding:14px 18px;font-size:14px;line-height:1.4">Visste ni att bananen är en av världens mest populära frukter? 🍌✨</div>
+      </div>
+      <p style="margin-top:20px;font-size:22px"><strong style="font-family:Poppins">Instagram</strong></p>
+    </div>
+    <div>
+      <div class="telefon" style="background:var(--gradient);height:600px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:30px;text-align:center">
+        <div style="font-family:Poppins;font-weight:700;font-size:26px;margin-bottom:24px">Hur äter ni er banan helst? 🍌</div>
+        <div style="background:var(--vit);border-radius:var(--radie);width:100%;padding:14px;font-weight:600;margin-bottom:10px;font-size:17px">Som den är 🍌</div>
+        <div style="background:var(--vit);border-radius:var(--radie);width:100%;padding:14px;font-weight:600;font-size:17px">I smoothie 🥤</div>
+      </div>
+      <p style="margin-top:20px;font-size:22px"><strong style="font-family:Poppins">Story</strong></p>
+    </div>
+  </div>
+  <div class="sidfot"><span>Bananrådet – Designsystem</span><span>12</span></div>
+</section>
+
+<!-- 13 Avslut -->
+<section class="page omslag" style="align-items:center;text-align:center">
+  <div class="cirkel" style="width:700px;height:700px;left:-200px;top:-200px"></div>
+  <div class="cirkel" style="width:600px;height:600px;right:-150px;bottom:-250px"></div>
+  <div class="logo" style="font-size:44px"><span class="logo-ikon" style="width:80px;height:80px;font-size:42px;background:var(--vit)">🍌</span>Bananrådet</div>
+  <h1 style="font-size:120px">Enkelt. Naturligt. Gott.</h1>
+  <p class="ingress" style="max-width:none">hej@bananradet.se</p>
+</section>
+
+<!-- 14 Bakom kulisserna -->
+<section class="page mork">
+  <span class="etikett" style="color:var(--gul)">Bakom kulisserna</span>
+  <h2 class="rubrik">Allt i det här designsystemet är en default</h2>
+  <p class="ingress">Inget av valen gjordes för bananer. De hade sett likadana ut för ett försäkringsbolag, en app eller en tandläkare.</p>
+  <div class="bingo">
+    <div>Poppins + Inter</div>
+    <div>Gradient utan funktion</div>
+    <div>Samma hörn och skugga på allt</div>
+    <div>Identiska kort om tre</div>
+    <div>Versal etikett ovanför rubriken</div>
+    <div>Ett ord i rubriken i annan färg</div>
+    <div>Numrering 01 / 02 / 03</div>
+    <div>"→" efter knapptext</div>
+    <div>Emoji som ikoner</div>
+    <div>Tre ord med punkt</div>
+    <div>Påhittade kundcitat</div>
+    <div>AI-genererade ansikten</div>
+    <div>"Superfrukt" och "energikick"</div>
+    <div>Glada människor på gym och kontor</div>
+    <div>Fade-in på varje sektion</div>
+  </div>
+  <div class="sidfot"><span>Bananrådet – Designsystem</span><span>14</span></div>
+</section>
+
+</body>
+</html>
