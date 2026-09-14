@@ -12,6 +12,25 @@ annat — grafisk profil, designsystem-PDF, SoMe-copy, bildlista och den här
 filen — är fortfarande på svenska och säger Bananrådet. Det är en medveten
 halvöversättning, inte ett misstag, men håll isär vilket språk du skriver i.
 
+## Två sidor, en switch
+
+Sedan 2026-09-14 finns kampanjen i två versioner, och hela poängen i dragningen
+är jämförelsen mellan dem:
+
+| | Fil | Uttryck |
+|---|---|---|
+| A-sidan | `index.html` | Medvetet generisk. Gul, vänlig, alla AI-defaults kvar. |
+| B-sidan | `human.html` | Stålindustri och brittisk punk. Mörk, hård, varje val taget av en människa. |
+
+En fast kontroll nere till vänster växlar mellan dem: **Non-human** till vänster
+(default, A-sidan), **Human** till höger. Den är en vanlig länk, ser likadan ut
+på båda sidorna och tillhör dragningen — inte någon av designerna. Styla om den
+inte åt något håll.
+
+Reglerna nedan gäller **A-sidan**. B-sidan har egna, minst lika hårda regler i
+`HANDOFF-punk-en.md` — läs den innan du rör `human.html`. Slå aldrig ihop
+sidorna, mjuka aldrig upp B-sidan mot A-sidan, radera ingendera.
+
 ## Viktigast: förbättra INTE designen
 
 Det här är den enda regeln som inte får brytas. Materialet är medvetet generiskt, så varje "förbättring" förstör demon.

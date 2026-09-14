@@ -135,9 +135,36 @@
     .formular { flex-direction: column; }
     section { padding: 70px 0; }
   }
+
+  /* Demoswitch: hör till dragningen, inte till någon av sidornas formspråk.
+     Neutral, kantig och identisk på båda sidor — enda konstanten mellan A och B. */
+  .hm-switch { position: fixed; left: 20px; bottom: 20px; z-index: 100;
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 14px; background: #111111; border: 1px solid #3A3A3A;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: #777777; box-shadow: none; }
+  .hm-switch:hover { border-color: #6E6E6E; }
+  .hm-switch:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 2px; }
+  .hm-label { line-height: 1; white-space: nowrap; }
+  .hm-label.hm-on { color: #FFFFFF; }
+  .hm-track { position: relative; width: 38px; height: 18px; background: #000000;
+    border: 1px solid #555555; flex: none; }
+  .hm-knob { position: absolute; top: 2px; left: 2px; width: 15px; height: 12px; background: #EDEDED; }
+  .hm-track.hm-right .hm-knob { left: auto; right: 2px; }
+  @media (max-width: 900px) {
+    .hm-switch { left: 12px; bottom: 12px; padding: 8px 10px; gap: 8px; font-size: 10px; }
+  }
 </style>
 </head>
 <body>
+
+<a class="hm-switch" href="human.html" aria-label="Switch to the human-made version of this site">
+  <span class="hm-label hm-on">Non-human</span>
+  <span class="hm-track"><span class="hm-knob"></span></span>
+  <span class="hm-label">Human</span>
+</a>
+
 
 <nav>
   <div class="container">
