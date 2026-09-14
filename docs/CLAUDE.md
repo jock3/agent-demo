@@ -4,7 +4,13 @@
 
 Demomaterial till en dragning om AI och människans kreativitet. Vi har byggt en fiktiv branschkampanj om bananer ("Bananrådet") som ska vara **så generisk som möjligt**: grafisk profil, designsystem, hemsida och SoMe-inlägg. Poängen i dragningen är att visa hur AI:s defaultval ser ut när ingen styr.
 
-Beställare: Gustav (Milou Communication AB). Språk i allt material: svenska.
+Beställare: Gustav (Milou Communication AB).
+
+**Språk.** Hemsidan (`index.html` och den byggda `Bananradet-hemsida.html`) är
+på engelska sedan 2026-09-14 och varumärket heter där **Banana Council**. Allt
+annat — grafisk profil, designsystem-PDF, SoMe-copy, bildlista och den här
+filen — är fortfarande på svenska och säger Bananrådet. Det är en medveten
+halvöversättning, inte ett misstag, men håll isär vilket språk du skriver i.
 
 ## Viktigast: förbättra INTE designen
 
@@ -15,9 +21,11 @@ Det här är den enda regeln som inte får brytas. Materialet är medvetet gener
 - Rätta inte de "fel" som finns med flit:
   - Receptkortet säger "bara tre ingredienser", men bilden visar sirap, valnötter, smör och florsocker. Den missmatchningen är en poäng i dragningen.
   - Kundcitaten är påhittade och ansiktena AI-genererade. Det är också en poäng.
-- Ny copy följer samma mönster: positiv, energisk, korta meningar, tilltal med ni/er/era (aldrig du).
+- Ny copy följer samma mönster: positiv, energisk, korta meningar. På svenska
+  är tilltalet ni/er/era (aldrig du). Engelskan har ingen motsvarighet till den
+  distinktionen — där är det bara "you/your", formellt och opersonligt i tonen.
 
-Fakta ska däremot vara korrekta. Näringsvärden är cirka 100 kcal, 3 g fiber och 400 mg kalium per medelstor banan. Hälsopåståenden följer EU:s godkända formuleringar ("bidrar till normal muskelfunktion"). Skriv inga nya hälsopåståenden utöver dessa.
+Fakta ska däremot vara korrekta. Näringsvärden är cirka 100 kcal, 3 g fiber och 400 mg kalium per medelstor banan. Hälsopåståenden följer EU:s godkända formuleringar ("bidrar till normal muskelfunktion" / "contributes to normal muscle function"). Skriv inga nya hälsopåståenden utöver dessa.
 
 ## Filstruktur
 
